@@ -1,0 +1,50 @@
+---
+import glyph from '../brand/glyph.svg?raw';
+import geist from '../fonts/Geist[wght].woff2?url';
+import '../styles/site.css';
+interface Props { title: string; description: string }
+const { title, description } = Astro.props;
+const og = new URL('/og.png', Astro.site).href;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+---
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="preload" href={geist} as="font" type="font/woff2" crossorigin />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={og} />
+    <meta property="og:image:alt" content="tidwick: a closed ledger, a ribbon marking the place" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:image" content={og} />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site-head">
+      <div class="wrap">
+        <a class="brand" href="/"><span aria-hidden="true" set:html={glyph.replace(/ role="img" aria-label="[^"]*"/, '')} /><span>tidwick</span></a>
+        <nav aria-label="Primary">
+          <a href="https://demo.tidwick.dev">Demo</a>
+          <a href="https://github.com/tidwick/tidwick">GitHub</a>
+        </nav>
+      </div>
+    </header>
+    <main id="main"><div class="wrap"><slot /></div></main>
+    <footer class="site-foot">
+      <div class="wrap">
+        <p>tidwick. Weekly timesheets you run yourself.</p>
+        <p><a href="https://github.com/tidwick/tidwick">Source on GitHub</a></p>
+      </div>
+    </footer>
+  </body>
+</html>

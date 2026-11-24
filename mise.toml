@@ -1,0 +1,9 @@
+[tools]
+node = "24.22.2"
+just = "1.59.0"
+actionlint = "1.7.12"
+zizmor = "1.33.1"
+pinact = "5.0.2"
+
+[settings]
+experimental = false
