@@ -13,7 +13,7 @@ const goals = [
   <div class="top">
   <section class="hero">
     <Fragment set:html={glyph} />
-    <p class="kicker">self-hosted weekly timesheets</p>
+    <p class="kicker">weekly timesheets you run yourself</p>
     <h1>tidwick</h1>
     <p class="deck">Weekly timesheets you run yourself.</p>
     <div class="ctas">
@@ -36,12 +36,12 @@ const goals = [
     </section>
     <section class="tile">
       <h2>Run your own</h2>
-      <p>The README walks through deploying tidwick to your own Cloudflare account.</p>
-      <p><a href="https://github.com/tidwick/tidwick#readme">Read the README</a></p>
+      <p>The <a href="https://github.com/tidwick/tidwick/blob/main/docs/ARCHITECTURE.md#9-deploy">docs walk through</a> deploying tidwick to your own Cloudflare account. It needs a Cloudflare account on the Workers Paid plan.</p>
       <p class="deploy">
-        <span class="deploy-btn" aria-disabled="true"><img src="/deploy-to-cloudflare.svg" alt="Deploy to Cloudflare" width="184" height="39" /></span>
-        <span class="label">Coming soon</span>
+        <a class="deploy-btn" href="https://deploy.workers.cloudflare.com/?url=https://github.com/tidwick/tidwick"><img src="/deploy-to-cloudflare.svg" alt="Deploy to Cloudflare" width="184" height="39" /></a>
       </p>
+      <p>After deploying, open the new Worker's address. The setup page generates the keys in your browser, then a one-time setup token claims the first admin.</p>
+      <p><strong>Why only Cloudflare?</strong> <a href="https://github.com/tidwick/tidwick/blob/main/docs/adr/0001-cloudflare-astro-platform.md">ADR 0001</a> explains the choice.</p>
     </section>
   </div>
 </Layout>
