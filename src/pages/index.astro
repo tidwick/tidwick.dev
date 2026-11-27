@@ -6,7 +6,7 @@ const goals = [
   'Nothing else to host or look after.',
   'Fill in the week, submit it, get it approved.',
   'Your hours export as CSV, any time.',
-  'Committed to being open source.',
+  'Open source, under the AGPL-3.0 licence.',
 ];
 const features = [
   'A weekly grid with a note on each cell, and keyboard entry.',
@@ -14,7 +14,7 @@ const features = [
   'Reports and a chart of hours by person, client, project, task and week.',
   'CSV export, and an import that previews before it writes.',
   'Add, offboard and reinstate people. Only admins and stewards create clients and projects.',
-  'Passkeys, optional single sign-on, recovery codes and an admin rescue link.',
+  'Passkeys, optional single sign-on, recovery codes and an admin re-enrolment link.',
   'Nightly encrypted backups to a second account, with a status view and a test alert.',
   'Agents can fill in a person\'s own week over MCP. Off unless you turn it on.',
   'Limits such as session length and import size, set as deploy variables.',
@@ -49,16 +49,16 @@ const features = [
     <section class="tile">
       <h2>Try the demo</h2>
       <p>A running copy to look around in. Pick one of four invented people, with no sign-up. It resets every night.</p>
-      <p>It is version 0, tested only by its author, with no support commitment. It is not a hosted service, and it has no timer, calendar view, invoicing, rates or native apps.</p>
+      <p>tidwick is version 0, tested only by its author, with no support commitment. It is not a hosted service, and it has no timer, calendar view, invoicing, rates or native apps.</p>
       <p><a href="https://demo.tidwick.dev/demo">Open demo.tidwick.dev</a></p>
     </section>
     <section class="tile">
       <h2>Run your own</h2>
-      <p>The <a href="https://github.com/tidwick/tidwick/blob/main/docs/ARCHITECTURE.md#9-deploy">docs walk through</a> deploying tidwick to your own Cloudflare account. It is written for the Workers Paid plan (the free plan is untested), and needs a domain, a second account for the off-account backup, and about an hour.</p>
+      <p>The <a href="https://github.com/tidwick/tidwick/blob/main/docs/ARCHITECTURE.md#9-deploy">docs walk through</a> deploying tidwick to your own Cloudflare account. They assume the Workers Paid plan (the free plan is untested). You also need a domain, a second account for the off-account backup, and about an hour.</p>
       <p class="deploy">
         <a class="deploy-btn" href="https://deploy.workers.cloudflare.com/?url=https://github.com/tidwick/tidwick"><img src="/deploy-to-cloudflare.svg" alt="Deploy to Cloudflare" width="184" height="39" /></a>
       </p>
-      <p>The button is untested on a real account. Then open the new Worker's address. The setup page generates the keys in your browser, and a one-time setup token claims the first admin.</p>
+      <p>The button creates the Worker. It is untested on a real account. Then open the Worker's address: the setup page generates the keys in your browser, and a one-time setup token claims the first admin.</p>
       <p><strong>Why only Cloudflare?</strong> It runs entirely on Workers, D1, R2 and cron, so there is nothing else to host. <a href="https://github.com/tidwick/tidwick/blob/main/docs/adr/0001-cloudflare-astro-platform.md">ADR 0001</a> has the reasoning.</p>
     </section>
   </div>
