@@ -57,3 +57,7 @@ main{padding:40px 0 56px}
 .tiles{grid-template-columns:1fr;gap:40px;margin-top:56px}
 }
 @media (prefers-reduced-motion:reduce){a{transition:none}}
+.features{margin-top:96px}
+.features ul{margin:0;padding:0 0 0 1.2em;columns:2;column-gap:56px}
+.features li{margin-bottom:8px;break-inside:avoid}
+@media (max-width:760px){.features{margin-top:56px}.features ul{columns:1}}
