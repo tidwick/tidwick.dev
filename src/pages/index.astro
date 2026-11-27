@@ -5,19 +5,30 @@ const goals = [
   'Run it yourself, in your own Cloudflare account.',
   'Nothing else to host or look after.',
   'Fill in the week, submit it, get it approved.',
-  'Your data exports to common formats, any time.',
-  'Committed to being open source.',
+  'Your hours export as CSV, any time.',
+  'Open source, under the AGPL-3.0 licence.',
+];
+const features = [
+  'A weekly grid with a note on each cell, and keyboard entry.',
+  'Submit, return with a reason, approve and lock, with a list of who has not submitted.',
+  'Reports and a chart of hours by person, client, project, task and week.',
+  'CSV export, and an import that previews before it writes.',
+  'Add, offboard and reinstate people. Only admins and stewards create clients and projects.',
+  'Passkeys, optional single sign-on, recovery codes and an admin re-enrolment link.',
+  'Nightly encrypted backups to a second account, with a status view and a test alert.',
+  'Agents can fill in a person\'s own week over MCP. Off unless you turn it on.',
+  'Limits such as session length and import size, set as deploy variables.',
 ];
 ---
 <Layout title="tidwick: weekly timesheets you run yourself" description="Weekly timesheets you run yourself, in your own Cloudflare account.">
   <div class="top">
   <section class="hero">
     <Fragment set:html={glyph} />
-    <p class="kicker">self-hosted weekly timesheets</p>
+    <p class="kicker">weekly timesheets you run yourself</p>
     <h1>tidwick</h1>
-    <p class="deck">Weekly timesheets you run yourself.</p>
+    <p class="deck">A weekly timesheet for a professional-services firm. Someone technical deploys it to the firm's own Cloudflare account. Nobody hosts it for you.</p>
     <div class="ctas">
-      <a class="cta primary" href="https://demo.tidwick.dev">Try the demo</a>
+      <a class="cta primary" href="https://demo.tidwick.dev/demo">Try the demo</a>
       <a class="cta" href="https://github.com/tidwick/tidwick">Run your own</a>
     </div>
   </section>
@@ -28,20 +39,27 @@ const goals = [
     </ol>
   </section>
   </div>
+  <section aria-labelledby="features" class="features">
+    <h2 id="features">What it does</h2>
+    <ul>
+      {features.map((f) => <li>{f}</li>)}
+    </ul>
+  </section>
   <div class="tiles">
     <section class="tile">
       <h2>Try the demo</h2>
-      <p>A running copy you can look around in.</p>
-      <p><a href="https://demo.tidwick.dev">Open demo.tidwick.dev</a></p>
+      <p>A running copy to look around in. Pick one of four invented people, with no sign-up. It resets every night.</p>
+      <p>tidwick is version 0, tested only by its author, with no support commitment. It is not a hosted service, and it has no timer, calendar view, invoicing, rates or native apps.</p>
+      <p><a href="https://demo.tidwick.dev/demo">Open demo.tidwick.dev</a></p>
     </section>
     <section class="tile">
       <h2>Run your own</h2>
-      <p>The README walks through deploying tidwick to your own Cloudflare account.</p>
-      <p><a href="https://github.com/tidwick/tidwick#readme">Read the README</a></p>
+      <p>The <a href="https://github.com/tidwick/tidwick/blob/main/docs/ARCHITECTURE.md#9-deploy">docs walk through</a> deploying tidwick to your own Cloudflare account. They assume the Workers Paid plan (the free plan is untested). You also need a domain, a second account for the off-account backup, and about an hour.</p>
       <p class="deploy">
-        <span class="deploy-btn" aria-disabled="true"><img src="/deploy-to-cloudflare.svg" alt="Deploy to Cloudflare" width="184" height="39" /></span>
-        <span class="label">Coming soon</span>
+        <a class="deploy-btn" href="https://deploy.workers.cloudflare.com/?url=https://github.com/tidwick/tidwick"><img src="/deploy-to-cloudflare.svg" alt="Deploy to Cloudflare" width="184" height="39" /></a>
       </p>
+      <p>The button creates the Worker. It is untested on a real account. Then open the Worker's address: the setup page generates the keys in your browser, and a one-time setup token claims the first admin.</p>
+      <p><strong>Why only Cloudflare?</strong> It runs entirely on Workers, D1, R2 and cron, so there is nothing else to host. <a href="https://github.com/tidwick/tidwick/blob/main/docs/adr/0001-cloudflare-astro-platform.md">ADR 0001</a> has the reasoning.</p>
     </section>
   </div>
 </Layout>
