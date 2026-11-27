@@ -54,11 +54,11 @@ const features = [
     </section>
     <section class="tile">
       <h2>Run your own</h2>
-      <p>The <a href="https://github.com/tidwick/tidwick/blob/main/docs/ARCHITECTURE.md#9-deploy">docs walk through</a> deploying tidwick to your own Cloudflare account. It needs the Workers Paid plan, a domain, a second account for the off-account backup, and about an hour.</p>
+      <p>The <a href="https://github.com/tidwick/tidwick/blob/main/docs/ARCHITECTURE.md#9-deploy">docs walk through</a> deploying tidwick to your own Cloudflare account. It is written for the Workers Paid plan (the free plan is untested), and needs a domain, a second account for the off-account backup, and about an hour.</p>
       <p class="deploy">
         <a class="deploy-btn" href="https://deploy.workers.cloudflare.com/?url=https://github.com/tidwick/tidwick"><img src="/deploy-to-cloudflare.svg" alt="Deploy to Cloudflare" width="184" height="39" /></a>
       </p>
-      <p>Then open the new Worker's address. The setup page generates the keys in your browser, and a one-time setup token claims the first admin.</p>
+      <p>The button is untested on a real account. Then open the new Worker's address. The setup page generates the keys in your browser, and a one-time setup token claims the first admin.</p>
       <p><strong>Why only Cloudflare?</strong> It runs entirely on Workers, D1, R2 and cron, so there is nothing else to host. <a href="https://github.com/tidwick/tidwick/blob/main/docs/adr/0001-cloudflare-astro-platform.md">ADR 0001</a> has the reasoning.</p>
     </section>
   </div>
